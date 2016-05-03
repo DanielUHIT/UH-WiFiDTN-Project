@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="armeabi-v7a,armeabi"
-    api-level="19"
-    density="xhdpi"
+    abi="arm64-v8a,armeabi-v7a,armeabi"
+    api-level="23"
+    density="560dpi"
     format="7"
-    timestamp="11828274602442" >
+    timestamp="12086176660368" >
 
     <task
         name="javac"
-        duration="301" />
+        duration="90" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="30" />
+        duration="157" />
     <task
         name="verifier"
-        duration="3" />
+        duration="32" />
 
     <artifact
         location="C:\Users\danie\Desktop\WiFiDirectDemo-master1\app\build\outputs\apk\app-debug.apk"
         type="MAIN" />
 
-    <build timestamp="11828274602442" >
+    <build timestamp="12086176660368" >
         <artifact
             location="C:\Users\danie\Desktop\WiFiDirectDemo-master1\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
