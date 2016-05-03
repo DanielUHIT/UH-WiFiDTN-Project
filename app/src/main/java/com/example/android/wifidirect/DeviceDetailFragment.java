@@ -113,6 +113,7 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
                         // registered apps
                         Intent myIntent = new Intent(v.getContext(), MessageFragment.class);
                         startActivityForResult(myIntent, 0);
+
 //                        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
 //                        intent.setType("image/*");
 //                        startActivityForResult(intent, CHOOSE_FILE_RESULT_CODE);
@@ -227,41 +228,28 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
 
         @Override
         protected String doInBackground(Void... params) {
-            ServerSocket serverSocket = null;
-            Socket client = null;
-            DataInputStream inputstream = null;
             try {
-                serverSocket = new ServerSocket(8988);
-                client = serverSocket.accept();
-                inputstream = new DataInputStream(client.getInputStream());
-                String str = inputstream.readUTF();
+                ServerSocket serverSocket = new ServerSocket(8988);
+                Log.d(WiFiDirectActivity.TAG, "Server: Socket opened");
+                Socket client = serverSocket.accept();
+                Log.d(WiFiDirectActivity.TAG, "Server: connection done");
+                final File f = new File(Environment.getExternalStorageDirectory() + "/"
+                        + context.getPackageName() + "/wifip2pshared-" + System.currentTimeMillis()
+                        + ".jpg");
+
+                File dirs = new File(f.getParent());
+                if (!dirs.exists())
+                    dirs.mkdirs();
+                f.createNewFile();
+
+                Log.d(WiFiDirectActivity.TAG, "server: copying files " + f.toString());
+                InputStream inputstream = client.getInputStream();
+                copyFile(inputstream, new FileOutputStream(f));
                 serverSocket.close();
-                return str;
+                return f.getAbsolutePath();
             } catch (IOException e) {
                 Log.e(WiFiDirectActivity.TAG, e.getMessage());
                 return null;
-            }finally{
-                if(inputstream != null){
-                    try{
-                        inputstream.close();
-                    } catch (IOException e) {
-                        Log.e(WiFiDirectActivity.TAG, e.getMessage());
-                    }
-                }
-                if(client != null){
-                    try{
-                        client.close();
-                    } catch (IOException e) {
-                        Log.e(WiFiDirectActivity.TAG, e.getMessage());
-                    }
-                }
-                if(serverSocket != null){
-                    try{
-                        serverSocket.close();
-                    } catch (IOException e) {
-                        Log.e(WiFiDirectActivity.TAG, e.getMessage());
-                    }
-                }
             }
         }
 
@@ -272,13 +260,11 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
         @Override
         protected void onPostExecute(String result) {
             if (result != null) {
-
-                statusText.setText("Funcionan");
-//                statusText.setText("File copied - " + result);
-//                Intent intent = new Intent();
-//                intent.setAction(android.content.Intent.ACTION_VIEW);
-//                intent.setDataAndType(Uri.parse("file://" + result), "image/*");
-//                context.startActivity(intent);
+                statusText.setText("File copied - " + result);
+                Intent intent = new Intent();
+                intent.setAction(android.content.Intent.ACTION_VIEW);
+                intent.setDataAndType(Uri.parse("file://" + result), "image/*");
+                context.startActivity(intent);
             }
 
         }

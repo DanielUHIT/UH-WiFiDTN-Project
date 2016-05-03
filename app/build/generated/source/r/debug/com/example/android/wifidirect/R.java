@@ -29,16 +29,17 @@ public final class R {
         public static final int section_header=0x7f020007;
     }
     public static final class id {
-        public static final int atn_direct_discover=0x7f09001f;
+        public static final int atn_direct_discover=0x7f090020;
         public static final int btn_connect=0x7f090000;
         public static final int btn_disconnect=0x7f090001;
         public static final int btn_start_client=0x7f090002;
-        public static final int button=0x7f09001b;
-        public static final int button2=0x7f09001c;
+        public static final int button=0x7f09001c;
+        public static final int button2=0x7f09001b;
+        public static final int button3=0x7f09001d;
         public static final int device_address=0x7f090003;
-        public static final int device_details=0x7f09001e;
+        public static final int device_details=0x7f09001f;
         public static final int device_info=0x7f090004;
-        public static final int device_name=0x7f09001d;
+        public static final int device_name=0x7f09001e;
         public static final int editText1=0x7f09001a;
         public static final int frag_detail=0x7f09000e;
         public static final int frag_list=0x7f09000d;
