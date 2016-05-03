@@ -4,7 +4,7 @@ This project is based in the WIFI-Direct-Master project from "ahmontero". This i
 
 ## Usage
 
-This application is only to be used as academic pourposes
+This application is only to be used as academic purposes
 
 ## Credits
 
@@ -13,5 +13,5 @@ Daniel Hernandez Grad Student University of Houston.
 
 ## License
 
-This code is not appropriate for production or comercial uses.
+This code is not appropriate for production or commercial uses.
 Feel free to use this code and don't forget to mention us in your references.
