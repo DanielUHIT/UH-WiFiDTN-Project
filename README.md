@@ -8,7 +8,7 @@ This application is only to be used as academic pourposes
 
 ## Credits
 
-Dr. Ricardo Lent University of Houston
+Dr. Ricardo Lent University of Houston;
 Daniel Hernandez Grad Student University of Houston.
 
 ## License
